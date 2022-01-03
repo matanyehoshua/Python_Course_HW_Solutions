@@ -1,8 +1,3 @@
-# name the db flights_db (in the connection string)
-# create a class for each table (inherit from Base):
-# flights, countries, tickets, airline_companies, users, customers, user_roles, administrators.
-# add the constraints to the fields (according to the diagrams)
-
 from datetime import datetime
 from sqlalchemy import Column, Integer, BigInteger, String, DateTime, ForeignKey
 from sqlalchemy.orm import relationship

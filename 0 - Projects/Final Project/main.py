@@ -34,11 +34,6 @@ repo.reset_auto_inc(Customers)
 
 
 
-
-# write a code which adds 2 records for each table (using repodb.py)
-
-
-
 repo.add(Countries(id=1, name='Japan'))
 repo.add(Countries(id=2, name='Israel'))
 
@@ -68,7 +63,7 @@ repo.add(Administrators(id=2, first_name='Shay', last_name='Hen', user_id=2))
 
 
 
-'''
+
 flights = repo.get_all(Flights)
 print(flights)
 
@@ -83,24 +78,23 @@ print('desc', flights)
 
 
 
-nissim = Users(username='nissim', email='nissim@somewhere.com')
-repo.add(nissim)
+# nissim = Users(username='nissim', email='nissim@somewhere.com')
+# repo.add(nissim)
 
-users_list = [Users(username='gal', email='gal@gal.com'), Users(username='jibs', email='job@jibs.com')]
-repo.add_all(users_list)
+# users_list = [Users(username='gal', email='gal@gal.com'), Users(username='jibs', email='job@jibs.com')]
+# repo.add_all(users_list)
 
 repo.update_by_column_value(Users, Users.username, 'nissim', {Users.username: 'new nissim', 'email':'nissim2@somewhere.com'})
 
-repo.add(Users(id=1, username='rachel', password=1234, email='rachelg@gmail.com'))
+# repo.add(Users(id=1, username='rachel', password=1234, email='rachelg@gmail.com'))
 
-user1 = Users(id=2, username='tomer23', password=1234, email='tomer23@gmail.com')
-user2 = Users(id=3, username='avi34', password=1234, email='avi34@gmail.com')
-users_ls = [user1, user2]
-repo.add_all(users_ls)
+# user1 = Users(id=2, username='tomer23', password=1234, email='tomer23@gmail.com')
+# user2 = Users(id=3, username='avi34', password=1234, email='avi34@gmail.com')
+# users_ls = [user1, user2]
+# repo.add_all(users_ls)
 
 print(repo.get_by_ilike(Users, Users.username, '%nissim%'))
 print(repo.get_by_id(Users, 2))
 print('> 1', repo.get_by_condition(Users, lambda query: query.filter(Users.id > 1).all()))
 print('> 2, first', repo.get_by_condition(Users, lambda query: query.filter(Users.id > 2).first()))
-print('> 3, first', repo.get_by_condition(Users, lambda query: query.filter(Users.id > 3 and Users.id > 4).first()))
-'''
+# print('> 3, first', repo.get_by_condition(Users, lambda query: query.filter(Users.id > 3 and Users.id > 4).first()))
