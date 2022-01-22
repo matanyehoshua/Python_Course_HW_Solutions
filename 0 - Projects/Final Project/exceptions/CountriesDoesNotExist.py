@@ -1,0 +1,3 @@
+
+class CountriesDoesNotExist(Exception):
+    pass

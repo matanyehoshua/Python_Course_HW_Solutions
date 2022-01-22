@@ -40,16 +40,16 @@ repo.add(Countries(id=2, name='Israel'))
 repo.add(User_roles(id=1, role_name='admin'))
 repo.add(User_roles(id=2, role_name='security'))
 
-repo.add(Users(id=1, username='Rachel', password=1234, email='rachelg@gmail.com', user_role=1))
-repo.add(Users(id=2, username='Nissim', password=123432, email='nissim@gmail.com', user_role=1))
+repo.add(Users(id=1, username='Rachel', password='1234', email='rachelg@gmail.com', user_role_id=1))
+repo.add(Users(id=2, username='Nissim', password='123432', email='nissim@gmail.com', user_role_id=1))
 
 repo.add(Airline_companies(id=1, name='John Airways', country_id=1, user_id=1))
 
 repo.add(Flights(id=1, airline_company_id=1, origin_country_id=1, destination_country_id=1, \
-                 departure_time=datetime(2021, 12, 21, 16, 30, 0), landing_time=datetime(2021, 12, 21, 23, 49, 0), remaining_tickets=2))
+departure_time=datetime(2021, 12, 21, 16, 30, 0), landing_time=datetime(2021, 12, 21, 23, 49, 0), remaining_tickets=2))
 
 repo.add(Flights(id=2, airline_company_id=1, origin_country_id=2, destination_country_id=1, \
-                 departure_time=datetime(2021, 12, 22, 16, 30, 0), landing_time=datetime(2021, 12, 22, 23, 49, 0), remaining_tickets=2))
+departure_time=datetime(2021, 12, 22, 16, 30, 0), landing_time=datetime(2021, 12, 22, 23, 49, 0), remaining_tickets=2))
 
 
 repo.add(Customers(id=1, first_name='Dor', last_name='Yuval', address='dory@gmail.com', phone_no=42142532, user_id=1))

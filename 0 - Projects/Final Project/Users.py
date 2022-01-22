@@ -12,17 +12,16 @@ class Users(Base):
     username = Column(String(), unique=True)
     password = Column(String())
     email = Column(String(), unique=True)
-    user_role = Column(Integer(), ForeignKey('user_roles.id'))
-    user_id = Column(Integer(), ForeignKey('customers.id'), unique=True, nullable=False)
+    user_role_id = Column(Integer(), ForeignKey('user_roles.id'))
     # relationships:
-    user_roles_id = relationship("User_roles", backref=backref("users", uselist=True))
+    user_role = relationship("User_roles", backref=backref("users", uselist=True))
 
     # __repr__
     def __repr__(self):
         return f'\n<id={self.id} username={self.username} password={self.password} email={self.email} \
-user_role={self.user_role} user_id={self.user_id} user_roles_id={self.user_roles_id}>'
+user_role_id={self.user_role_id} user_role={self.user_role}>'
 
     # __str__
     def __str__(self):
         return f'<id={self.id} username={self.username} password={self.password} email={self.email} \
-user_role={self.user_role} user_id={self.user_id} user_roles_id={self.user_roles_id}>'
+user_role_id={self.user_role_id} user_role={self.user_role}>'

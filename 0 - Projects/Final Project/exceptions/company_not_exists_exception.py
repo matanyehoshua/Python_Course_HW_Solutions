@@ -1,0 +1,3 @@
+
+class CompanyNotExistsException(Exception):
+    pass

@@ -1,0 +1,3 @@
+
+class AirlineCompanyDoesNotExistException(Exception):
+    pass

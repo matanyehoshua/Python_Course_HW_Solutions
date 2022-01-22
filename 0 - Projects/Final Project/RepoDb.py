@@ -15,6 +15,7 @@ from Customers import Customers
 from User_roles import User_roles
 from Administrators import Administrators
 
+
 class RepoDb:
     def __init__(self, local_session):
         self.local_session = local_session
@@ -64,3 +65,6 @@ class RepoDb:
 
     def get_by_ilike(self, table_class, column_name, exp):
         return self.local_session.query(table_class).filter(column_name.ilike(exp)).all()
+
+    def get_by_column_value(self, table_class, column_name, value):
+        return self.local_session.query(table_class).filter(column_name == value).all()
