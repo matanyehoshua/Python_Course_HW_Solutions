@@ -4,6 +4,7 @@ from Flights import Flights
 from Airline_companies import Airline_companies
 from Countries import Countries
 from Users import Users
+from Customers import Customers
 from exceptions.company_not_exists_exception import CompanyNotExistsException # to check
 from exceptions.Flight_Does_Not_Exist_Exception import FlightDoesNotExistException
 from exceptions.AirlineCompanyDoesNotExistException import AirlineCompanyDoesNotExistException
@@ -39,5 +40,5 @@ class AnonymousFacade:
         repo.add(self, Users)
 
     def add_customer(self, customer):
-        pass
+        repo.add(self, Customers) # to check
 

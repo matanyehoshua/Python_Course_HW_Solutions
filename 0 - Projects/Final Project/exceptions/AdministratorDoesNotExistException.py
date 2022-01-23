@@ -1,0 +1,3 @@
+
+class AdministratorDoesNotExistException(Exception):
+    pass
