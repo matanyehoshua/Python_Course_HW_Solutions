@@ -1,0 +1,4 @@
+kivy.deps.gstreamer
+kivy.deps.angle
+pygame
+kivy==2.0.0
