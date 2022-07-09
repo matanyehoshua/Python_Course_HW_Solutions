@@ -1,0 +1,25 @@
+# stored procedures are stored in the RepoDb.py file:
+
+####SYNTAX ERROR
+
+#####def function get_flights_by_parameters(_origin_counry_id int, _detination_country_id int, _date date):
+
+
+--drop function get_flights_by_parameters(_origin_counry_id int, _detination_country_id int, _date date)
+
+CREATE or REPLACE function get_flights_by_parameters(_origin_counry_id int, _detination_country_id int, _date date)
+returns TABLE(origin_counry_id int, detination_country_id int, departure_time date)
+language plpgsql AS
+	$$
+		BEGIN
+			return query select flt.origin_country_id, flt.detination_country_id, flt.departure_time
+			from flights as flt
+			join flights on flights.id = flights.id
+			where flights.origin_counry_id = _origin_counry_id;
+		end;
+	$$;
+select get_flights_by_parameters(2, 1, 2021-12-22 16:30:00) 
+
+
+
+##################################################

@@ -1,3 +1,0 @@
-
-class FlightDoesNotExistException(Exception):
-    pass

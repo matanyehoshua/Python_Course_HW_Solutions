@@ -1,0 +1,25 @@
+# stored procedures are stored in the RepoDb.py file:
+
+# returns only the id
+
+#####def function get_flights_by_airline_id(_airline_id bigint):
+
+
+--drop function get_flights_by_airline_id(_airline_id bigint)
+
+CREATE or REPLACE function get_flights_by_airline_id(_airline_id bigint)
+returns TABLE(id bigint)
+language plpgsql AS
+	$$
+		BEGIN
+			return query select alc.id
+			from airline_companies as alc
+			join flights on flights.id = alc.id
+			where alc.id = _airline_id;
+		end;
+	$$;
+select get_flights_by_airline_id(1) 
+
+
+
+##################################################

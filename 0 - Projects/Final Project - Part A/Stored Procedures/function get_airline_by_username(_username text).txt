@@ -1,0 +1,24 @@
+# stored procedures are stored in the RepoDb.py file:
+
+#####def get_airline_by_username(self, _username_text):
+
+
+--drop function get_airline_by_username(_username text)
+
+CREATE or REPLACE function get_airline_by_username(_username text)
+returns TABLE(id bigint, name character varying, country_id integer, user_id bigint)
+language plpgsql AS
+	$$
+		BEGIN
+			return query select ac.id, ac.name, ac.country_id, ac.user_id 
+			from airline_companies as ac
+			join users on users.id = ac.user_id
+			where users.username = _username;
+		end;
+	$$;
+
+select get_airline_by_username('Rachel') 
+
+
+
+##################################################

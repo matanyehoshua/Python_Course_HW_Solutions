@@ -1,0 +1,24 @@
+# stored procedures are stored in the RepoDb.py file:
+
+#####def get_customer_by_username(self, _username_text):
+
+
+--drop function get_customer_by_username(_username text)
+
+CREATE or REPLACE function get_customer_by_username(_username text)
+returns TABLE(id bigint, first_name character varying, last_name character varying, address character varying, phone_no character varying, user_id bigint)
+language plpgsql AS
+	$$
+		BEGIN
+			return query select cus.id, cus.first_name, cus.last_name, cus.address, cus.phone_no, cus.user_id
+			from customers as cus
+			join users on users.id = cus.user_id
+			where users.username = _username;
+		end;
+	$$;
+
+select get_customer_by_username('Rachel') 
+
+
+
+##################################################

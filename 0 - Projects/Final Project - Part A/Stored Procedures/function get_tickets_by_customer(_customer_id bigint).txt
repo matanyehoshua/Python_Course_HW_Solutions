@@ -1,0 +1,25 @@
+# stored procedures are stored in the RepoDb.py file:
+
+#####def get_tickets_by_customer(_customer_id bigint):
+
+## returns error
+
+--drop function get_tickets_by_customer(_customer_id bigint)
+
+CREATE or REPLACE function get_tickets_by_customer(_customer_id bigint)
+returns TABLE(id bigint, flight_id bigint, customer_id bigint)
+language plpgsql AS
+	$$
+		BEGIN
+			return query select tkt.id, tkt.flight_id, tkt.customer_id
+			from tickets as tkt
+			join customers on tickets.id = customers.id
+			where customer.id = _customer_id;
+		end;
+	$$;
+
+select get_tickets_by_customer(1)
+
+
+
+##################################################

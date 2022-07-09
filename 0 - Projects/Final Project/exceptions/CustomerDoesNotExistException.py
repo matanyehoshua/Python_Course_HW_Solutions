@@ -1,3 +1,0 @@
-
-class CustomerDoesNotExistException(Exception):
-    pass

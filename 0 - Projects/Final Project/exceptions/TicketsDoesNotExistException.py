@@ -1,3 +1,0 @@
-
-class TicketsDoesNotExistException(Exception):
-    pass

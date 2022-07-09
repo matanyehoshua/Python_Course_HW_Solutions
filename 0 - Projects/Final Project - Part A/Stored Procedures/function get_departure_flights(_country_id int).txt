@@ -1,0 +1,24 @@
+# stored procedures are stored in the RepoDb.py file:
+
+# returns blank table
+
+--drop function get_arrival_flights(_country_id int)
+
+
+CREATE or REPLACE function get_arrival_flights(id int)
+returns TABLE(_country_id int)
+language plpgsql AS
+	$$
+		BEGIN
+			return query select cid.country_id
+			from airline_companies as cid
+			join flights on flights.id = cid.id
+			where cid.id = _country_id;
+		end;
+	$$;
+
+select get_arrival_flights(1)
+
+
+
+##################################################
